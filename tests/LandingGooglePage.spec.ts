@@ -25,15 +25,9 @@ import { POManager } from '../pageobjects_ts/POManager';
 
 
     //check Copywright and take screenshot
-    await effiePage.checkCopywrightText();
-    await effiePage.captureScreenshot('copywrightText');
+    const verified = await effiePage.checkCopywrightText();
 
-
-
-
-
-
-
+    //await effiePage.captureScreenshot('copywrightText');
   });
 
 
