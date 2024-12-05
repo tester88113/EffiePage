@@ -26,7 +26,6 @@ test(` EffiePage`, async ({ page }) => {
 
   //check Copywright and take screenshot
   await effiePage.checkCopywrightText();
-
   await effiePage.captureScreenshot('copywrightText');
 });
 
