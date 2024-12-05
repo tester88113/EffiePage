@@ -1,0 +1,17 @@
+Text is not matching: ExpectError: expect(received).toBe(expected) // Object.is equality
+
+Expected: "Copyright 2023 Elfie Pte. Ltd."
+Received: "Copyright © 2024 Elfie Pte. Ltd."
+    at EffiePage.checkCopywrightText (/Users/phdv/Documents/EffieAssignmentLast/pageobjects_ts/EffiePage.ts:53:27)
+    at /Users/phdv/Documents/EffieAssignmentLast/tests/LandingGooglePage.spec.ts:28:6 {
+  matcherResult: {
+    actual: 'Copyright © 2024 Elfie Pte. Ltd.',
+    expected: 'Copyright 2023 Elfie Pte. Ltd.',
+    message: '\x1B[2mexpect(\x1B[22m\x1B[31mreceived\x1B[39m\x1B[2m).\x1B[22mtoBe\x1B[2m(\x1B[22m\x1B[32mexpected\x1B[39m\x1B[2m) // Object.is equality\x1B[22m\n' +
+      '\n' +
+      'Expected: \x1B[32m"Copyright 202\x1B[7m3\x1B[27m Elfie Pte. Ltd."\x1B[39m\n' +
+      'Received: \x1B[31m"Copyright\x1B[7m ©\x1B[27m 202\x1B[7m4\x1B[27m Elfie Pte. Ltd."\x1B[39m',
+    name: 'toBe',
+    pass: false
+  }
+}

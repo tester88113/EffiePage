@@ -15,13 +15,13 @@ export class EffiePage {
         this.effieLogo = page.locator("div.app-icon-holder");
         this.hambergerMenu = page.locator("div.header-menu-button-icon-wrapper");
         this.xButoon = page.locator('div.icon-wrapper');
-        this.copywrightText = page.locator("text='Copyright © 2024 Elfie Pte. Ltd.']");
+        this.copywrightText = page.locator('.footer-content-bottom .text-block');
 
     }
 
     async takeScreenshotLogo() {
         await expect(this.effieLogo).toBeVisible();
-        await this.page.screenshot({ path: 'screenshotLogo.png' });
+        await this.page.screenshot({ path: 'screenshots/screenshotLogo.png' });
 
 
     }
@@ -32,29 +32,27 @@ export class EffiePage {
         await this.hambergerMenu.click();
         await expect(this.xButoon).toBeVisible();
         //await this.page.waitForLoadState('networkidle');
-        await this.page.screenshot({ path: 'screenshotXbutton.png' });
+        await this.page.screenshot({ path: 'screenshots/screenshotXbutton.png' }); 
         await this.xButoon.click();
     }
 
     async checkCopywrightText() {
         await this.page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-        //await expect(this.copywrightText).toHaveText("Copyright 2023 Elfie Pte. Ltd.");
-        //await this.page.screenshot({path: 'screenshotCopywrightText.png'});
+       
 
         try {
 
-            this.page.screenshot({ path: 'copywrightText.png' });
+           
 
-            const text1 = await this.copywrightText.textContent();
-            // Get the text content of the second element
-            const text2 = "Copyright 2024 Elfie Pte. Ltd.";
+            const text1 = await this.copywrightText.innerText();
+            console.log(text1);
+            const text2 = "Copyright 2023 Elfie Pte. Ltd.";
 
-            // Compare and return the result
-            const result = text1?.trim() === text2?.trim();
 
-            console.log("result ", result)
+            // check
+            expect(text1).toBe(text2);
 
-            return result;
+    
 
         } catch (error) {
             console.error('Text is not matching:', error);
